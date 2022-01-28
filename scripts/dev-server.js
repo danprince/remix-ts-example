@@ -21,6 +21,8 @@ esbuild.build({
 nodemon({
   script: config.outfile,
   env: {
+    // Remix sets NODE_ENV for the client side, we need to set for server
+    NODE_ENV: "development",
     // Remix uses some experimental APIs which create a lot of noise.
     // Disable node warnings during dev (we'll still see them during build though).
     NODE_NO_WARNINGS: "1"
